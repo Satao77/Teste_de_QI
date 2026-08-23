@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: teste-de-qi-1
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: PRECO_LAUDO
+        value: "29.90"
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: MP_WEBHOOK_SECRET
+        sync: false
+      - key: OWNER_NAME
+        sync: false
+      - key: OWNER_BANK_NAME
+        sync: false
+      - key: OWNER_BANK_AGENCY
+        sync: false
+      - key: OWNER_BANK_ACCOUNT
+        sync: false

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de QI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">Teste de QI</a>
+  </header>
+
+  <main id="app">
+    <section id="screen-home" class="screen active">
+      <header class="hero">
+        <span class="badge" id="home-badge">Carregando...</span>
+        <h1>Descubra seu <em>QI estimado</em></h1>
+        <p class="lead">
+          O teste e gratuito. O resultado detalhado — pontuacao, percentil e
+          desempenho por area — e liberado apos o pagamento no Mercado Pago.
+        </p>
+      </header>
+
+      <div class="score-card pay-card">
+        <p class="price" id="home-price">—</p>
+        <p class="score-desc">Valor do resultado detalhado, visivel antes de voce comecar.</p>
+      </div>
+
+      <div class="test-grid" id="test-list"></div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-start" disabled>Comecar o teste</button>
+        <p class="hint">Responda com calma. Nao ha limite de tempo por questao. Resultado recreativo, nao e avaliacao profissional.</p>
+      </div>
+    </section>
+
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-header">
+        <button class="btn-back" id="btn-back" aria-label="Voltar">←</button>
+        <div class="quiz-meta">
+          <span class="quiz-label" id="quiz-label">Teste</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+        <span class="timer" id="quiz-timer">00:00</span>
+      </div>
+      <article class="question-card">
+        <h2 class="question-title" id="question-title"></h2>
+        <div class="question-body" id="question-body"></div>
+        <div class="options" id="options"></div>
+      </article>
+      <div class="quiz-footer">
+        <button class="btn btn-secondary" id="btn-next" disabled>Proxima →</button>
+      </div>
+    </section>
+
+    <section id="screen-waiting" class="screen">
+      <header class="results-hero">
+        <span class="badge">Pagamento</span>
+        <h1>Estamos <em>confirmando</em></h1>
+        <p class="lead" id="waiting-text">O Mercado Pago ainda esta notificando o servidor. Isso pode levar alguns segundos.</p>
+      </header>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-recheck">Consultar novamente</button>
+        <a class="btn btn-secondary" href="/">Voltar ao inicio</a>
+      </div>
+    </section>
+
+    <section id="screen-pay-error" class="screen">
+      <header class="results-hero">
+        <span class="badge">Pagamento</span>
+        <h1>Pagamento <em>nao concluido</em></h1>
+        <p class="lead">Nada foi cobrado de forma definitiva. Voce pode refazer o teste e tentar outra vez.</p>
+      </header>
+      <div class="actions">
+        <a class="btn btn-primary" href="/">Voltar ao inicio</a>
+      </div>
+    </section>
+
+    <section id="screen-results" class="screen">
+      <header class="results-hero">
+        <span class="badge badge-success">Resultado detalhado</span>
+        <h1>Seu relatorio</h1>
+      </header>
+      <div class="score-card">
+        <div class="score-ring">
+          <svg viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"/>
+          </svg>
+          <div class="score-value">
+            <span id="iq-score">—</span>
+            <small>QI estimado</small>
+          </div>
+        </div>
+        <p class="score-band" id="score-band"></p>
+        <p class="score-desc" id="score-desc"></p>
+        <div class="score-meta" id="score-meta"></div>
+      </div>
+      <div class="breakdown" id="breakdown"></div>
+      <div class="score-card" id="receipt" hidden>
+        <p class="pay-label">Comprovante</p>
+        <div class="score-meta" id="receipt-body"></div>
+      </div>
+      <p class="disclaimer">
+        Este e um teste recreativo e nao constitui avaliacao profissional.
+        O QI real depende de instrumentos padronizados aplicados por profissional habilitado.
+      </p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>
