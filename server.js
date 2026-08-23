@@ -11,12 +11,16 @@ import { scoreAttempt, theoreticalPercentile } from "./server/scoring.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, "public");
 
-const RENDER_URL = (process.env.RENDER_EXTERNAL_URL || "https://teste-de-qi-1.onrender.com").replace(/\/+$/, "");
+const PUBLIC_URL = (
+  process.env.BASE_URL ||
+  process.env.RENDER_EXTERNAL_URL ||
+  "https://intelliix.online"
+).replace(/\/+$/, "");
 
 const config = {
   mpToken: (process.env.MP_ACCESS_TOKEN || "").trim(),
   webhookSecret: process.env.MP_WEBHOOK_SECRET || "",
-  baseUrl: (process.env.BASE_URL || RENDER_URL).replace(/\/+$/, ""),
+  baseUrl: PUBLIC_URL,
   preco: Number(process.env.PRECO_LAUDO ?? 29.9),
   porta: Number(process.env.PORT ?? 3000),
   host: process.env.HOST || "0.0.0.0",

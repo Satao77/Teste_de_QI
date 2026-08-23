@@ -1,16 +1,21 @@
 services:
   - type: web
-    name: teste-de-qi-1
+    name: teste-de-qi
     runtime: node
     plan: free
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
+    domains:
+      - intelliix.online
+      - www.intelliix.online
     envVars:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
         value: "20"
+      - key: BASE_URL
+        value: https://intelliix.online
       - key: PRECO_LAUDO
         value: "29.90"
       - key: MP_ACCESS_TOKEN

@@ -13,13 +13,13 @@ No Render o site sobe sem `MP_ACCESS_TOKEN`. Sem esse token, o teste abre e o ch
 
 ## Render
 
-Servico: `https://teste-de-qi-1.onrender.com`
+Dominio: `https://intelliix.online`
 
 - Runtime: Node
 - Build: `npm install`
 - Start: `npm start`
 - Health check: `/api/health`
-- `BASE_URL` nao e obrigatorio. O Render preenche `RENDER_EXTERNAL_URL`.
+- `BASE_URL=https://intelliix.online`
 - Em Environment, coloque `MP_ACCESS_TOKEN` para o pagamento funcionar.
 - Depois do push, use Manual Deploy → Deploy latest commit.
 
